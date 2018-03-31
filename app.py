@@ -1,9 +1,8 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, Api, request, jsonify
 from genexp import gen_exp
 
 app = Flask(__name__)
-CORS(app)
+api = Api(app)
 
 LETTERS = {0: "a", 1: "b", 2: "c", 3: "d", 4: "e"}
 
@@ -27,6 +26,13 @@ def to_json(func):
 @app.route('/exp')
 def execute_gen_exp():
     return jsonify(to_json(gen_exp))
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 if __name__ == "__main__":
     app.run()
