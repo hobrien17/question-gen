@@ -1,8 +1,8 @@
-from flask import Flask, Api, request, jsonify
+from flask import Flask, request, jsonify
 from genexp import gen_exp
 
 app = Flask(__name__)
-api = Api(app)
+#api = Api(app)
 
 LETTERS = {0: "a", 1: "b", 2: "c", 3: "d", 4: "e"}
 
