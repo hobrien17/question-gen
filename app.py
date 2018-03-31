@@ -2,6 +2,7 @@ import random
 import operator
 import string
 import math
+from flask import Flask
 
 PM = ["+", "-"]
 DM = ["//", "%"]
@@ -266,5 +267,13 @@ def gen_exp():
             break
     return exp
 
+####################################################################################################
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "testing1234"
+
 if __name__ == "__main__":
-    print("yes")
+    app.run()
