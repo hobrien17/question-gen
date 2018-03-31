@@ -1,4 +1,4 @@
-from flask import Flask, request, current_app
+from flask import Flask, request, current_app, jsonify
 from functools import wraps
 from genexp import gen_exp
 
@@ -40,7 +40,7 @@ def jsonp(func):
 
 @app.route('/exp')
 def execute_gen_exp():
-    return jsonp(to_json(gen_exp))
+    return jsonify(to_json(gen_exp))
 
 @app.after_request
 def after_request(response):
