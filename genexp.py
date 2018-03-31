@@ -259,11 +259,6 @@ def gen_exp():
                 break
         except ZeroDivisionError:
             continue
-    opts = sorted(opts)
-    for i in opts:
-        if "ERROR" in i.upper():
-            opts.remove(i)
-            opts.append(i)
-            break
-    return exp
+    question = f"What does the expression {exp} evaluate to?"
+    return question, answer, opts
     
