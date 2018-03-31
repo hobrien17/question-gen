@@ -260,5 +260,5 @@ def gen_exp():
         except ZeroDivisionError:
             continue
     question = f"What does the expression {exp} evaluate to?"
-    return question, answer, opts
+    return question, str(answer), opts
     
