@@ -43,7 +43,7 @@ def gen_exp_1():
     else:
         opts.append(answer + rand(-10, 10))
     opts.append(answer + rand(-20, 20))
-    opts.append(answer + rand(-answer + 1, answer - 1))
+    opts.append(answer + rand(-abs(answer), abs(answer)))
     opts.append("TypeError")
 
     return result, answer, opts
