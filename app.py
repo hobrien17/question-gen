@@ -2,7 +2,7 @@ import random
 import operator
 import string
 import math
-from flask import Flask
+from flask import Flask, request
 
 PM = ["+", "-"]
 DM = ["//", "%"]
@@ -271,9 +271,9 @@ def gen_exp():
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return "testing1234"
+@app.route('/', methods=['POST'])
+def execute(data):
+    return data + " yes"
 
 if __name__ == "__main__":
     app.run()
