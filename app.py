@@ -271,9 +271,13 @@ def gen_exp():
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
-def execute(data):
-    return data + " yes"
+@app.route('/')
+def execute():
+    return "yes"
+
+@app.route('/stuff')
+def execute_2():
+    return "no"
 
 if __name__ == "__main__":
     app.run()
