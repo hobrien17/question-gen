@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from genexp import gen_exp
 
 app = Flask(__name__)
+CORS(app)
 
 LETTERS = {0: "a", 1: "b", 2: "c", 3: "d", 4: "e"}
 
