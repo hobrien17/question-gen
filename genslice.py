@@ -4,7 +4,9 @@ import string
 import math
 
 STRINGS = ["Dogs and cats", "Critical mass", "Monty Python", "A string", "Computer Science", "Hello world",
-           "Chocolate cake", "Frozen desert", "Thunderstorm", "Roses are red", "Hot temper", "Engineering"]
+           "Chocolate cake", "Frozen desert", "Thunderstorm", "Roses are red", "Hot temper", "Engineering",
+           "Silver bullet", "Batman and Robin", "Black Mamba", "Mathematics", "Pterodactyl", "Sleeping beauty",
+           "Sulphuric acid", "Some words", "Planet Earth", "Mars mission", "Moon landing", "Indiana Jones"]
 MORE = "More than one of the above is correct"
 NONE = "None of the above"
 START_KEY = 100

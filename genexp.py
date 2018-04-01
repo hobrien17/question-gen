@@ -8,7 +8,9 @@ DM = ["//", "%"]
 OP = {"+": operator.add, "-": operator.sub, "//": operator.floordiv, "%": operator.mod,
       "*": operator.mul, "**": operator.pow}
 
-STRS = ["cat", "dog", "mouse", "fish", "bird", "fred", "bob", "bill", "joe", "jim", "abc", "xyz"]
+STRS = ["cat", "dog", "fish", "bird", "bee", "eel", "emu", "fly", "hen", "hog", "owl",
+        "bat", "fun", "pig", "ape", "fox", "cow", "rat", "ant", "seal", "deer", "bug",
+        "boar", "duck", "goat", "lion", "bear", "crab", "toad", "wolf", "hare", "yak"]
 
 def rand(start, end):
     r = 0
@@ -204,7 +206,7 @@ def gen_exp_9():
 
     opts = [
         str((int1, int2, int3)),
-        f"({int1}, {int2}, ({int3},)",
+        f"({int1}, {int2}, ({int3},))",
         f"({int1}, {int2}, ({int3}))",
         str((int1 + int3, int2 + int3)),
     ]
