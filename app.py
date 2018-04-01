@@ -1,9 +1,10 @@
 from flask import Flask, request, current_app, jsonify
 from functools import wraps
 from genexp import gen_exp
+from genslice import gen_slice
+import random
 
 app = Flask(__name__)
-#api = Api(app)
 
 LETTERS = {0: "a", 1: "b", 2: "c", 3: "d", 4: "e"}
 
@@ -11,9 +12,9 @@ def to_json(func):
     d = {}
     question, answer, opts = func()
 
-    opts = sorted(opts)
+    random.shuffle(opts)
     for i in opts:
-        if "ERROR" in i.upper():
+        if "ERROR" in i.upper() or "ABOVE" in i.upper():
             opts.remove(i)
             opts.append(i)
             break
@@ -41,6 +42,10 @@ def jsonp(func):
 @app.route('/exp')
 def execute_gen_exp():
     return jsonify(to_json(gen_exp))
+
+@app.route('/slice')
+def execute_gen_slice():
+    return jsonify(to_json(gen_slice))
 
 @app.after_request
 def after_request(response):
