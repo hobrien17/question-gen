@@ -235,7 +235,7 @@ def to_string(opt):
         else:
             return f"y = x[{opt[0]}:{opt[1]}]"
     elif len(opt) == 3:
-        return f"y = x[{opt[1]}:{opt[2]}:{opt[3]}]"
+        return f"y = x[{opt[0]}:{opt[1]}:{opt[2]}]"
 
 
 def gen_slice():
