@@ -2,6 +2,7 @@ from flask import Flask, request, current_app, jsonify
 from functools import wraps
 from genexp import gen_exp
 from genslice import gen_slice
+from genlst import gen_list
 import random
 
 app = Flask(__name__)
@@ -46,6 +47,10 @@ def execute_gen_exp():
 @app.route('/slice')
 def execute_gen_slice():
     return jsonify(to_json(gen_slice))
+
+@app.route('/list')
+def execute_gen_list():
+    return jsonify(to_json(gen_list))
 
 @app.after_request
 def after_request(response):
