@@ -47,7 +47,7 @@ def gen_list_1():
     if i == 0:
         op1 = list.pop
         param1 = random.randint(0, 1)
-        func += f"    z = xs.pop({param1})\n"
+        func += f"\tz = xs.pop({param1})\n"
 
         op2 = random.choice([list.extend, list.append])
         param2 = 0
@@ -56,13 +56,13 @@ def gen_list_1():
     else:
         op1 = list.pop
         param1 = -1
-        func += f"    z = xs.pop(-1)\n"
+        func += f"\tz = xs.pop(-1)\n"
 
         op2 = list.insert
         param2 = random.randint(0, 1)
-        func += f"    xs.insert({param2}, z)\n"
+        func += f"\txs.insert({param2}, z)\n"
 
-    func += "    return xs\n"
+    func += "\treturn xs\n"
 
     opts = [xs[:]]
 
@@ -101,7 +101,7 @@ def gen_list_1():
 
 
 def gen_list_2():
-    func = "def f(x, y):\n    y = y + [x]\n    return y\n\n"
+    func = "def f(x, y):\n\ty = y + [x]\n\treturn y\n\n"
     xs = rand_int_list(2)
     y = xs[-1] + 1
     code = f"w = {xs}\nw = f({y}, w) + w\n"
@@ -114,7 +114,7 @@ def gen_list_2():
 
 
 def gen_list_3():
-    func = "def f(x, y):\n    y.append(x)\n    return y\n\n"
+    func = "def f(x, y):\n\ty.append(x)\n\treturn y\n\n"
     xs = rand_int_list(2)
     y = xs[-1] + 1
     code = f"w = {xs}\nw = f({y}, w) + w\n"
