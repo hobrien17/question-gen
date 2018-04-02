@@ -294,8 +294,8 @@ def gen_list_4():
         opts.append(str(ys))
 
         index = xs.index(elem)
-        opts.append(index)
-        opts.append(index - 1)
+        opts.append(str(index))
+        opts.append(str(index - 1))
         opts.append('None')
 
     opts.append("Error")
@@ -310,7 +310,4 @@ def gen_list():
     func = random.choice(FUNCS)
     return func()
 
-
-for i in gen_list():
-    print(i)
 
