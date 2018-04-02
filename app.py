@@ -3,15 +3,16 @@ from functools import wraps
 from genexp import gen_exp
 from genslice import gen_slice
 from genlst import gen_list
+from genstr import gen_str
 import random
 
 app = Flask(__name__)
 
 LETTERS = {0: "a", 1: "b", 2: "c", 3: "d", 4: "e"}
 
-def to_json(func):
+def to_json(inp):
     d = {}
-    question, answer, opts = func()
+    question, answer, opts = inp
 
     random.shuffle(opts)
     for i in opts:
@@ -42,15 +43,19 @@ def jsonp(func):
 
 @app.route('/exp')
 def execute_gen_exp():
-    return jsonify(to_json(gen_exp))
+    return jsonify(to_json(gen_exp()))
 
 @app.route('/slice')
 def execute_gen_slice():
-    return jsonify(to_json(gen_slice))
+    return jsonify(to_json(gen_slice()))
 
 @app.route('/list')
 def execute_gen_list():
-    return jsonify(to_json(gen_list))
+    return jsonify(to_json(gen_list()))
+
+@app.route('/str')
+def execute_gen_str():
+    return jsonify(to_json(gen_str()))
 
 @app.after_request
 def after_request(response):
