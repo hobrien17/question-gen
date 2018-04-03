@@ -9,7 +9,7 @@ STRINGS = ["Here is a string", "Python is fun", "Some random words", "Strings an
            "Night and day", "Count to five", "Stringy stringed strings", "Roses are red", "Batman and Robin",
            "a b c d e"]
 SHORT_STRINGS = ["cat", "dog", "pig", "bat", "owl", "cow", "abc", "xyz"]
-DELIMS = [",", ":", ";", " ", ".", "_"]
+DELIMS = [",", ":", ";", ".", "_"]
 
 NONE = "None of the above"
 
@@ -76,8 +76,10 @@ def gen_str_6():
     ans = None
 
     while len(set(opts)) < 5:
-        s = insert_whitespace(random.choice(STRINGS)) + random.choice(MULTI_WHITESPACE)
-        delim = random.choice(DELIMS)
+        #s = insert_whitespace(random.choice(STRINGS)) + random.choice(MULTI_WHITESPACE)
+        s = "Stringy stringed str\n\n\nings\r\n"
+        delim = " "
+        #delim = random.choice(DELIMS)
 
         ans = str(delim.join(s.split()))
 
@@ -229,10 +231,8 @@ def gen_str_1():
 
 FUNCS = [gen_str_1, gen_str_2, gen_str_3, gen_str_4, gen_str_5, gen_str_6]
 
-
 def gen_str():
     return random.choice(FUNCS)()
-
 
 for i in gen_str_6():
     print(i)
