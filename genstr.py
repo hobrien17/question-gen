@@ -83,10 +83,11 @@ def gen_str_6():
 
         ans = str(delim.join(s.split()))
 
-        opts = [ans, NONE,
+        opts = [ans,
                 repl_whitespace(str(delim.join(s.split(" ")))),
                 repl_whitespace(str(delim.join(re.split(r'\s', s)))),
-                repl_whitespace(str(delim.join(s.split() + [''])))]
+                repl_whitespace(str(delim.join(s.split() + ['']))),
+                NONE]
 
     exp = f"'{delim}'.join(x.split())"
     question = f"After the assignment x = '{repl_whitespace(s)}', what does the expression {exp} evaluate to?\n"

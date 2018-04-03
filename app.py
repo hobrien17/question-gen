@@ -4,6 +4,7 @@ from genexp import gen_exp
 from genslice import gen_slice
 from genlst import gen_list
 from genstr import gen_str
+from gendict import gen_dict
 import random
 
 app = Flask(__name__)
@@ -56,6 +57,10 @@ def execute_gen_list():
 @app.route('/str')
 def execute_gen_str():
     return jsonify(to_json(gen_str()))
+
+@app.route('/dict')
+def execute_gen_dict():
+    return jsonify(to_json(gen_dict()))
 
 @app.after_request
 def after_request(response):
