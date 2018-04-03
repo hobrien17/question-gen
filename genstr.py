@@ -231,8 +231,6 @@ def gen_str_1():
 
 FUNCS = [gen_str_1, gen_str_2, gen_str_3, gen_str_4, gen_str_5, gen_str_6]
 
+
 def gen_str():
     return random.choice(FUNCS)()
-
-for i in gen_str_6():
-    print(i)

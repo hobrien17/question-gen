@@ -51,7 +51,7 @@ def gen_list_1():
 
         op2 = random.choice([list.extend, list.append])
         param2 = 0
-        op2_strs = {list.extend: "xs.extend(z)", list.append: "xs.append(z)"}
+        op2_strs = {list.extend: "\txs.extend(z)", list.append: "\txs.append(z)"}
         func += "    " + op2_strs[op2] + "\n"
     else:
         op1 = list.pop
