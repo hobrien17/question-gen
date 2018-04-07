@@ -6,6 +6,7 @@ from genlst import gen_list
 from genstr import gen_str
 from gendict import gen_dict
 from genclass import gen_class
+from genio import gen_io
 import random
 
 app = Flask(__name__)
@@ -66,6 +67,10 @@ def execute_gen_dict():
 @app.route('/class')
 def execute_gen_class():
     return jsonify(to_json(gen_class()))
+
+@app.route('/io')
+def execute_gen_io():
+    return jsonify(to_json(gen_io()))
 
 @app.after_request
 def after_request(response):

@@ -83,7 +83,7 @@ def gen_class_1():
             base.append(line)
 
     ans = None
-    opts = [NONE]
+    opts = [MORE]
 
     for i, line in enumerate(method):
         if line[-2] != "X":
