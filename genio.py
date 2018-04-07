@@ -61,7 +61,7 @@ def gen_io_2():
             if line.startswith("#"):
                 funcs.append((fun, line[1:].strip()))
                 fun = ""
-            elif line != "\n":
+            else:
                 fun += line.replace("    ", "\t")
 
     choice = random.choice(funcs)

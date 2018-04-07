@@ -14,7 +14,6 @@ def fn(in_file, out_file):
     inp.close()
     out.close()
 #sum
-
 def fn(in_file, out_file):
     inp = open(in_file, "r")
     out = open(out_file, "w")
@@ -34,7 +33,6 @@ def fn(in_file, out_file):
     inp.close()
     out.close()
 #max
-
 def fn(in_file, out_file):
     inp = open(in_file, "r")
     out = open(out_file, "w")
@@ -54,7 +52,6 @@ def fn(in_file, out_file):
     inp.close()
     out.close()
 #min
-
 def fn(in_file, out_file):
     inp = open(in_file, "r")
     out = open(out_file, "w")

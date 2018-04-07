@@ -19,7 +19,7 @@ def to_json(inp):
 
     random.shuffle(opts)
     for i in opts:
-        if "ERROR" in i.upper() or "ABOVE" in i.upper():
+        if i.upper().endswith("ERROR") or "ABOVE" in i.upper():
             opts.remove(i)
             opts.append(i)
             break
