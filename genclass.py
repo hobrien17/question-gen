@@ -72,7 +72,7 @@ def gen_class_1():
     base = []
     method = []
 
-    content = load_class(classes)
+    content = load_class(CLASSES)
     length = int(content[0][1])
     chosen = random.randint(1, length)
     for line in content[1:]:
