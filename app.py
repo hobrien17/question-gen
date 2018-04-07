@@ -5,6 +5,7 @@ from genslice import gen_slice
 from genlst import gen_list
 from genstr import gen_str
 from gendict import gen_dict
+from genclass import gen_class
 import random
 
 app = Flask(__name__)
@@ -61,6 +62,10 @@ def execute_gen_str():
 @app.route('/dict')
 def execute_gen_dict():
     return jsonify(to_json(gen_dict()))
+
+@app.route('/class')
+def execute_gen_class():
+    return jsonify(to_json(gen_class()))
 
 @app.after_request
 def after_request(response):
