@@ -120,14 +120,15 @@ def gen_except_1():
            f"\tprint('b')\n" \
            f"print('c')\n"
 
-    question = "What will be printed, or what exception will be thrown when the following code is run?\n\n" + code
-    choices = ["'a'", "'b'", "'c'", f"{exes[0]}", f"{exes[1]}"]
+    question = "Which option best describes the output of the following code?\n\n" + code
+    choices = ["'a' will be thrown", "'b' will be thrown", "'c' will be thrown",
+               f"{exes[0]} will be thrown", f"{exes[1]} will be thrown"]
     if excep is None:
-        answer = "'c'"
+        answer = "'c' will be printed"
     elif exes[0] == excep.__name__:
-        answer = "'a'"
+        answer = "'a' will be printed"
     else:
-        answer = "'b'"
+        answer = "'b' will be printed"
 
     return question, answer, choices
 
@@ -153,9 +154,10 @@ def gen_except_2():
            f"\tprint('b')\n" \
            f"print('c')\n"
 
-    question = "What will be printed, or what exception will be thrown when the following code is run?\n\n" + code
-    choices = ["'a'", "'b'", "'c'", f"{opts[0]}", f"{opts[1]}"]
-    answer = ex.__name__
+    question = "Which option best describes the output of the following code?\n\n" + code
+    choices = ["'a' will be printed", "'b' will be printed", "'c' will be printed",
+               f"{opts[0]} will be thrown", f"{opts[1]} will be thrown"]
+    answer = ex.__name__ + " will be thrown"
 
     return question, answer, choices
 
@@ -178,15 +180,16 @@ def gen_except_3():
            f"\tprint('b')\n" \
            f"print('c')\n"
 
-    question = "What will be printed, or what exception will be thrown when the following code is run?\n\n" + code
-    choices = ["'a'", "'b'", "'c'", ex.__name__, opposite]
+    question = "Which option best describes the output of the following code?\n\n" + code
+    choices = ["'a' will be printed", "'b' will be printed", "'c' will be printed",
+               ex.__name__ + " will be thrown", opposite + " will be thrown"]
 
     if excep is None:
-        answer = "'c'"
+        answer = "'c' will be printed"
     elif ex.__name__ == choice:
-        answer = "'a'"
+        answer = "'a' will be printed"
     else:
-        answer = "'b'"
+        answer = "'b' will be printed"
 
     return question, answer, choices
 
