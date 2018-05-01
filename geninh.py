@@ -144,7 +144,7 @@ def gen_inh_2():
         question += f"After the initialization c = C({c_inp_x}, {c_inp_y}), what will the method call c.f({x}) return?"
         ans = c.f(x)
     else:
-        question += f"After the initialization b = C({c_inp_x}, {c_inp_y}), what will the method call c.g({x}) return?"
+        question += f"After the initialization c = C({c_inp_x}, {c_inp_y}), what will the method call c.g({x}) return?"
         ans = c.g(x)
 
     i = random.randint(-3, 0)
@@ -196,16 +196,16 @@ def gen_inh_1():
 
 
 def gen_inh():
-    """if hasattr(B, "f"):
-        delattr(B, "f")
-    if hasattr(B, "g"):
-        delattr(B, "g")
-    if hasattr(C, "f"):
-        delattr(C, "f")
-    if hasattr(C, "g"):
-        delattr(C, "g")
     if hasattr(A, "f"):
-        delattr(A, "f")
+        del A.f
     if hasattr(A, "g"):
-        delattr(A, "g")"""
+        del A.g
+    if hasattr(B, "f"):
+        del B.f
+    if hasattr(B, "g"):
+        del B.g
+    if hasattr(C, "f"):
+        del C.f
+    if hasattr(C, "g"):
+        del C.g
     return random.choice([gen_inh_1, gen_inh_2])()
