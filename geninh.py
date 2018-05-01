@@ -15,7 +15,6 @@ def get_source(fn, cls):
     text = text.replace("g1", "g")
     text = text.replace("g2", "g")
     text = text.replace("g3", "g")
-    text = text.replace("    ", "\t")
     return text
 
 
@@ -43,8 +42,9 @@ class A(object):
         return self.f(self.x - x)
 
     def __str__(self):
-        return "class A(object):\n" + inspect.getsource(self.__init__) + "\n" + get_source(self.f, self) + "\n" + \
+        res = "class A(object):\n" + inspect.getsource(self.__init__) + "\n" + get_source(self.f, self) + "\n" + \
                                                                       get_source(self.g, self) + "\n"
+        return res.replace("    ", "\t")
 
 
 class B(A):
@@ -73,7 +73,7 @@ class B(A):
             res += get_source(self.f, self) + "\n"
         else:
             res += get_source(self.g, self) + "\n"
-        return res
+        return res.replace("    ", "\t")
 
 
 class C(B):
@@ -106,7 +106,7 @@ class C(B):
             res += get_source(self.f, self) + "\n"
         else:
             res += get_source(self.g, self) + "\n"
-        return res
+        return res.replace("    ", "\t")
 
 
 def gen_inh_2():
