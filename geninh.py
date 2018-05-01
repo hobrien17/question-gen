@@ -148,11 +148,11 @@ def gen_inh_2():
     i = random.randint(-3, 0)
     opts = []
     for j in range(4):
-        opts.append(ans + i)
+        opts.append(str(ans + i))
         i += 1
     opts.append(NONE)
 
-    return question, ans, opts
+    return question, str(ans), opts
 
 
 def gen_inh_1():
