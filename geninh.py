@@ -9,7 +9,10 @@ NONE = "None of the above"
 
 def get_source(fn, cls):
     text = inspect.getsource(fn)
-    text = text.replace("self.r", str(cls.r))
+    if hasattr(cls, "r"):
+        text = text.replace("self.r", str(cls.r))
+    if hasattr(cls, "s"):
+        text = text.replace("self.s", str(cls.s))
     text = text.replace("f1", "f")
     text = text.replace("f2", "f")
     text = text.replace("f3", "f")
@@ -51,22 +54,22 @@ class A(object):
 class B(A):
 
     def f1(self, x):
-        return self.x + self.r * x
+        return self.x + self.s * x
 
     def f2(self, x):
         return self.x - x
 
     def f3(self, x):
-        return self.x * self.r - self.r
+        return self.x * self.s - self.s
 
     def g1(self, x):
-        return self.x - (self.r + x)
+        return self.x - (self.s + x)
 
     def g2(self, x):
         return self.f(self.x + x)
 
     def g3(self, x):
-        return self.f(x + self.r)
+        return self.f(x + self.s)
 
     def __str__(self):
         res = "class B(A):\n"
@@ -117,7 +120,7 @@ def gen_inh_2():
     r1 = random.randint(2, 4)
     r2 = random.randint(2, 4)
     setattr(A, "r", r1)
-    setattr(B, "r", r2)
+    setattr(B, "s", r2)
     setattr(A, "f", random.choice([A.f1, A.f2, A.f3]))
     setattr(A, "g", random.choice([A.g1, A.g2, A.g3]))
 
@@ -209,3 +212,7 @@ def gen_inh():
     if hasattr(C, "g"):
         del C.g
     return random.choice([gen_inh_1, gen_inh_2])()
+
+
+for i in gen_inh_2():
+    print(i)
