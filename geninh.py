@@ -15,6 +15,7 @@ def get_source(fn, cls):
     text = text.replace("g1", "g")
     text = text.replace("g2", "g")
     text = text.replace("g3", "g")
+    text = text.replace("    ", "\t")
     return text
 
 
