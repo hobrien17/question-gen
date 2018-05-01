@@ -8,6 +8,7 @@ from gendict import gen_dict
 from genclass import gen_class
 from genio import gen_io
 from genexcept import gen_except
+from geninh import gen_inh
 import random
 
 app = Flask(__name__)
@@ -76,6 +77,10 @@ def execute_gen_io():
 @app.route('/except')
 def execute_gen_except():
     return jsonify(to_json(gen_except()))
+
+@app.route('/inh')
+def execute_gen_inh():
+    return jsonify(to_json(gen_inh()))
 
 @app.after_request
 def after_request(response):

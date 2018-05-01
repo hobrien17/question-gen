@@ -223,7 +223,7 @@ def gen_except_4():
     return question, ans, opts
 
 
-FUNCS = [gen_except_1, gen_except_2, gen_except_3, gen_except_4, gen_except_4]
+FUNCS = [gen_except_1, gen_except_2, gen_except_3, gen_except_4]
 
 
 def gen_except():
