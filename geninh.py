@@ -6,6 +6,7 @@ import inspect
 
 NONE = "None of the above"
 
+
 def get_source(fn, cls):
     text = inspect.getsource(fn)
     text = text.replace("self.r", str(cls.r))
@@ -195,7 +196,7 @@ def gen_inh_1():
 
 
 def gen_inh():
-    if hasattr(B, "f"):
+    """if hasattr(B, "f"):
         delattr(B, "f")
     if hasattr(B, "g"):
         delattr(B, "g")
@@ -206,5 +207,5 @@ def gen_inh():
     if hasattr(A, "f"):
         delattr(A, "f")
     if hasattr(A, "g"):
-        delattr(A, "g")
+        delattr(A, "g")"""
     return random.choice([gen_inh_1, gen_inh_2])()
